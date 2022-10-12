@@ -6,15 +6,14 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:19:18 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/10 16:16:03 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/12 17:24:56 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 void	*ft_bzero(void *s, size_t n)
-{
+{	
 	char	*string;
 
 	string = (char *) s;
