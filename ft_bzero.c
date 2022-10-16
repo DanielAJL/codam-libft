@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:19:18 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/12 18:16:49 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/16 12:22:23 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ String should always be empty, unless 0 passed as n?
 #include "libft.h"
 
 void	*ft_bzero(void *s, size_t n)
-{	
+{
 	char	*string;
 
 	string = (char *) s;
@@ -26,24 +26,24 @@ void	*ft_bzero(void *s, size_t n)
 	return (string);
 }
 
-int	main(void)
-{
-	char	str[7];
+// int	main(void)
+// {
+// 	char	str[7];
 
-	str[0] = 'A';
-	str[1] = 'B';
-	str[2] = 'C';
-	str[3] = 'D';
-	str[4] = ' ';
-	str[5] = 'X';
-	str[6] = 'Y';
-	printf("Before bzero => %s", str);
-	ft_bzero(str, 0);
-	bzero(str, 0);
-	printf("\nAfter bzero => %s\n", str);
-	printf("Before bzero => %s", str);
-	ft_bzero(str, 5);
-	bzero(str, 5);
-	printf("\nAfter bzero => %s\n", str);
-	return (0);
-}
+// 	str[0] = 'A';
+// 	str[1] = 'B';
+// 	str[2] = 'C';
+// 	str[3] = 'D';
+// 	str[4] = ' ';
+// 	str[5] = 'X';
+// 	str[6] = 'Y';
+// 	printf("Before bzero => %s", str);
+// 	ft_bzero(str, 0);
+// 	bzero(str, 0);
+// 	printf("\nAfter bzero => %s\n", str);
+// 	printf("Before bzero => %s", str);
+// 	ft_bzero(str, 5);
+// 	bzero(str, 5);
+// 	printf("\nAfter bzero => %s\n", str);
+// 	return (0);
+// }
