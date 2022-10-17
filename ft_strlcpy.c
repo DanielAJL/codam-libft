@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:08:03 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/15 13:41:48 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/16 12:40:49 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dsize)
 	i = 0;
 	if (!dsize)
 		return (ft_strlen(src));
-	while (src[i] && i <= (dsize - 1))
+	while (source_copy[i] && i < (dsize - 1))
 	{
-		dst[i] = src[i];
+		dst[i] = source_copy[i];
 		i++;
 	}
 	dst[i] = '\0';
