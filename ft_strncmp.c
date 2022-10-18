@@ -1,4 +1,14 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/18 15:37:22 by dlynch            #+#    #+#             */
+/*   Updated: 2022/10/18 15:37:33 by dlynch           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 /*
 	compare char as unsgined characters, so that `\200' is greater than `\0'.
@@ -8,6 +18,9 @@
 
 	To test this we can pass "\0x80" as a string which is hexidecimal for 128.
 */
+
+#include "libft.h"
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*s_copy1;

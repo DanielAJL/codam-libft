@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/18 15:38:40 by dlynch            #+#    #+#             */
+/*   Updated: 2022/10/18 15:39:00 by dlynch           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
@@ -12,7 +24,7 @@ char	*ft_strrchr(const char *s, int c)
 	i--;
 	while (s[i] && i > -1)
 	{
-		if(s[i] == c)
+		if (s[i] == c)
 			return (ptr + i);
 		i--;
 	}
@@ -30,7 +42,6 @@ char	*ft_strrchr(const char *s, int c)
 
 // 	ptr1 = ft_strrchr("ABCEABCZE\0", '5');
 // 	ptr2 = strrchr("ABCEABCZE\0", '5');
-
 
 // 	puts(ptr1 - 1);
 // 	puts(ptr2 - 1);

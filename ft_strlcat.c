@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:42:11 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/17 13:39:44 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/18 15:36:49 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 	size_t	d_len;
 	size_t	s_len;
 
+	if (dsize == 0 && (!dst || !src))
+		return (0);
 	d_len = ft_strlen(dst);
 	s_len = ft_strlen(src);
 	if (dsize < d_len)
@@ -69,8 +71,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 // 	// printf("%lu\n", b);
 // 	// puts(s1);
 // 	// puts(s2);
-
-
 
 // 	// a = ft_strlcat(&destination1[2], &source1[2], 6);
 // 	a = ft_strlcat("\0", "\0", 0);
