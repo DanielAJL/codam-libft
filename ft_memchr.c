@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:33:49 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/18 15:34:26 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/18 18:59:32 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	ptr = (unsigned char *) s;
 	i = 0;
-	puts((char *) ptr);
 	while (ptr[i] && (i < n))
 	{
 		if (ptr[i] == (unsigned char) c)
