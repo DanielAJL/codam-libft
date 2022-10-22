@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 14:38:47 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/20 17:14:36 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/20 18:11:37 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 size_t	ft_strlcat(char *dst, const char *src, size_t dsize);
+char	*ft_strchr(const char *s, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
