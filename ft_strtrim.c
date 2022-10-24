@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:03:56 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/24 14:37:42 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/24 15:17:26 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static	int	ptr_after_match_front(char const *s1, char const *set);
 static	int	ptr_before_match_back(char const *s1, char const *set);
 
 /*
-Return index to first non-matching occurrence AFTER match found from front.
+Return index to first non-matching occurrence AFTER match found from start of s1
 If none are found, index will be matching strlen(s1)
 */
 static	int	ptr_after_match_front(char const *s1, char const *set)
@@ -40,8 +40,8 @@ static	int	ptr_after_match_front(char const *s1, char const *set)
 }
 
 /*
-Return index to first non-matching occurrence BEFORE match found from back.
-If none are found, index will be matching strlen(s1)
+Return index to first non-matching occurrence BEFORE match found from end of s1.
+If none are found, index will be matching 0 / the start of s1
 */
 static	int	ptr_before_match_back(char const *s1, char const *set)
 {
