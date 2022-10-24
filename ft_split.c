@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:44:49 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/24 17:34:13 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/24 17:43:36 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,24 @@ static	int	get_total_substring_count(char const *s1, int c)
 
 char	**ft_split(char const *s, char c)
 {
-	int	start;
-	int	end;
-	int	str_count;
-	char	*ptr;
+	// int	start;
+	// int	end;
+	// int	str_count;
+	// char	*ptr;
+	char	**array;
 
-	start = get_first_non_matching_position(s, c);
-	end = get_first_matching_position(s + start, c); // also length from start
-	ptr = ft_substr(s, start, (size_t) end);
 	str_count = get_total_substring_count(s, c);
+	array = malloc((str_count + 1) * sizeof(char *)); // +1 for terminating
+	if (!array)
+		return (NULL);
 
-	printf("start:		[%d]\n\n", start);
-	printf("end:		[%d]\n\n", end);
-	printf("ptr:		[%s]\n\n", ptr);
-	printf("str_count:	[%d]\n\n", str_count);
+	// start = get_first_non_matching_position(s, c);
+	// end = get_first_matching_position(s + start, c); // also length from start
+	// ptr = ft_substr(s, start, (size_t) end);
+	// printf("start:		[%d]\n\n", start);
+	// printf("end:		[%d]\n\n", end);
+	// printf("ptr:		[%s]\n\n", ptr);
+	// printf("str_count:	[%d]\n\n", str_count);
 }
 
 
