@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:44:49 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/24 17:21:25 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/24 17:34:13 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ static	int	get_total_substring_count(char const *s1, int c)
 	i = 0;
 	while (s1[i])
 	{
-		if (s1[i] != c)
+		if (s1[i] && s1[i] != c)
 		{
-			count ++;
-			while (s1[i] && s1[i] != c)
+			if(s1[i] != '\0')
+				count ++;
+			while (s1[i + 1] && s1[i] != c)
 				i++;
 		}
 		i++;
@@ -79,8 +80,6 @@ char	**ft_split(char const *s, char c)
 	ptr = ft_substr(s, start, (size_t) end);
 	str_count = get_total_substring_count(s, c);
 
-
-
 	printf("start:		[%d]\n\n", start);
 	printf("end:		[%d]\n\n", end);
 	printf("ptr:		[%s]\n\n", ptr);
@@ -90,7 +89,7 @@ char	**ft_split(char const *s, char c)
 
 int	main(void)
 {
-	char	*string = "      split       this for   me  ! ";
+	char	*string = "split       this for   me  ! ";
 	char	**expected = ((char*[6]){"split", "this", "for", "me", "!", NULL});
 	ft_split(string, ' ');
 	while (*expected)
