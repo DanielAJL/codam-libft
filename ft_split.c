@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:44:49 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/24 17:43:36 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/24 17:52:56 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 static	int	get_first_non_matching_position(char const *s1, int c);
 static	int	get_first_matching_position(char const *s1, int c);
+static	int	get_total_substring_count(char const *s1, int c);
+static	char **fill_array_with_strings(char	**arr, char const *s1);
+
 
 static	int	get_first_matching_position(char const *s1, int c)
 {
@@ -68,18 +71,34 @@ static	int	get_total_substring_count(char const *s1, int c)
 	return (count);
 }
 
+
+static	char **fill_array_with_strings(char	**arr, char const *s1)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		printf("--> %d\n", i);
+		i++;
+	}
+	return (arr);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	// int	start;
 	// int	end;
-	// int	str_count;
 	// char	*ptr;
+	int	str_count;
 	char	**array;
 
 	str_count = get_total_substring_count(s, c);
 	array = malloc((str_count + 1) * sizeof(char *)); // +1 for terminating
 	if (!array)
 		return (NULL);
+
+	fill_array_with_strings(array, s);
 
 	// start = get_first_non_matching_position(s, c);
 	// end = get_first_matching_position(s + start, c); // also length from start
