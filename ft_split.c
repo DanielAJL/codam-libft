@@ -6,51 +6,19 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:44:49 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/24 17:52:56 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/28 14:02:40 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	get_first_non_matching_position(char const *s1, int c);
-static	int	get_first_matching_position(char const *s1, int c);
-static	int	get_total_substring_count(char const *s1, int c);
-static	char **fill_array_with_strings(char	**arr, char const *s1);
+// Get count of words separated by a delimiter character.
+static	int		get_word_count(char const *s1, int c);
+static	int		get_word_len(char const *s1, int c, int current_i);
+static	char	**copy_into_array(char **arr, const char *s, char c, int w_c);
+static void		ft_free(char **strs, int j);
 
-
-static	int	get_first_matching_position(char const *s1, int c)
-{
-	int		i;
-
-	i = 0;
-	while (s1[i])
-	{
-		if (s1[i] == c)
-			return (i);
-		i++;
-	}
-	return (i);
-}
-
-/*
-Returns an index position of the pointer passed where the pointer points to the
-first character found NOT matching int c character.
-*/
-static	int	get_first_non_matching_position(char const *s1, int c)
-{
-	int		i;
-
-	i = 0;
-	while (s1[i])
-	{
-		if (s1[i] != c)
-			return (i);
-		i++;
-	}
-	return (i);
-}
-
-static	int	get_total_substring_count(char const *s1, int c)
+static	int	get_word_count(char const *s1, int c)
 {
 	int	count;
 	int	i;
@@ -71,69 +39,76 @@ static	int	get_total_substring_count(char const *s1, int c)
 	return (count);
 }
 
-
-static	char **fill_array_with_strings(char	**arr, char const *s1)
+static int get_word_len(char const *s1, int c, int current_i)
 {
-	int	i;
+	int	word_len;
 
-	i = 0;
-	while (arr[i])
+	word_len = 0;
+	// Iterate through *s1 while c != delimiter character
+	while (s1[current_i] && s1[current_i] != c)
 	{
-		printf("--> %d\n", i);
+		word_len++;
+		current_i++;
+	}
+	return (word_len);
+}
+
+// Free within array indices and entire arr afterwards.
+static void	ft_free(char **arr, int i)
+{
+	while (i)
+	{
+		free(arr[i]);
 		i++;
 	}
+	free(arr);
+}
+
+
+static char **copy_into_array(char **arr, const char *s, char c, int w_c)
+{
+	int	i;
+	int	j;
+	int	word_size;
+
+	i = 0;
+	j = -1;
+	while (++j < w_c)
+	{
+		while (s[i] == c)
+			i++;
+		word_size = get_word_len(s, c, i);
+		arr[j] = ft_substr(s, i, word_size);
+		if (!arr[j])
+		{
+			ft_free(arr, j);
+			return (NULL);
+		}
+		i = i + word_size; // index if from last position found of prev word.
+	}
+	arr[j] = (char *) '\0';
 	return (arr);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	// int	start;
-	// int	end;
-	// char	*ptr;
-	int	str_count;
-	char	**array;
+	int	word_count;
+	char	**arr;
 
-	str_count = get_total_substring_count(s, c);
-	array = malloc((str_count + 1) * sizeof(char *)); // +1 for terminating
-	if (!array)
+	if (!s)
 		return (NULL);
-
-	fill_array_with_strings(array, s);
-
-	// start = get_first_non_matching_position(s, c);
-	// end = get_first_matching_position(s + start, c); // also length from start
-	// ptr = ft_substr(s, start, (size_t) end);
-	// printf("start:		[%d]\n\n", start);
-	// printf("end:		[%d]\n\n", end);
-	// printf("ptr:		[%s]\n\n", ptr);
-	// printf("str_count:	[%d]\n\n", str_count);
+	word_count = get_word_count(s, c);
+	arr = (char **)malloc(sizeof(char *) * (word_count + 1)); // +1 for terminating the array
+	if(!arr)
+		return (NULL);
+	arr = copy_into_array(arr, s, c, word_count);
+	return (arr);
 }
 
-
-int	main(void)
-{
-	char	*string = "split       this for   me  ! ";
-	char	**expected = ((char*[6]){"split", "this", "for", "me", "!", NULL});
-	ft_split(string, ' ');
-	while (*expected)
-		printf( "%s\n", *expected++ );
-	return (0);
-}
-
-// char **dub_arr;
-// dub_arr = malloc(aantal woorden)
-
-// while
+// int	main(void)
 // {
-// 	iets met zoek woord en lengte
-// 	dub_arr[i] = substr (of andere functie)
-// 	if !dub-arr
-// 	{
-// 		free_functie(&dubarr[0])
-// 		free(dub_arr);
-// 	}
-
-// 	i++
+// 	char	*string = "split       this for   me  ! ";
+// 	char	**expected = ((char*[6]){"split", "this", "for", "me", "!", NULL});
+// 	ft_split(string, ' ');
+// 	return (0);
 // }
-
-
