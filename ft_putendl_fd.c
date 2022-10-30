@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:15:28 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/28 16:24:01 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/30 11:44:43 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);
-	write(fd, "\n" , sizeof(char));
+	write(fd, "\n", sizeof(char));
 }

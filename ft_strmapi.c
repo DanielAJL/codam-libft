@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:34:27 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/28 15:46:52 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/30 11:50:58 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
-	char	*str;
+	char			*str;
+
 	if (!s || !f)
 		return (NULL);
 	str = malloc(ft_strlen(s) * sizeof(char) + 1);
