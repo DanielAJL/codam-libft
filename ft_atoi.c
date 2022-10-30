@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:13:24 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/18 17:56:37 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/10/30 14:53:55 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,37 +26,6 @@ lines on a printed page — they make reading easier.
 
 // 9 HT, 10 LF, 11 VT, 12 FF, 13 CR, 32 SPACE [WHITESPACE CHARS]
 // 43 + , 45 -
-
-// int	ft_atoi(const char *str)
-// {
-// 	int		*ptr_int;
-// 	// char	*ptr_char;
-// 	size_t	i;
-// 	int	found;
-
-// 	// ptr_char = (char *) str;
-// 	i = 0;
-// 	found = 0;
-// 	// Loop for every char that is NOT a-z && A-Z
-// 	while (str[i])
-// 	{
-// 		if(ft_isdigit(str[i]))
-// 		{
-// 			ptr_int[found] = str[i] - '0';
-// 			found++;
-// 		}
-// 		if(((str[i] >= 9 && str[i] <= 13) || (str[i] == 32)))
-// 		{
-// 			if(found)
-// 			{
-// 				return (*ptr_int - found);
-// 			}
-// 			// found whitespace char and we have not yet encountered a digit
-// 		}
-// 		i++;
-// 	}
-// 	return (0);
-// }
 
 int	ft_atoi(const char *str)
 {
