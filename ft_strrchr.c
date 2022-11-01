@@ -6,25 +6,29 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:38:40 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/18 15:39:00 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/11/01 15:26:16 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
+#include <stdio.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;
 	int		i;
 
+	if (s == NULL)
+		return (NULL);
 	ptr = (char *) s;
 	i = ft_strlen(s);
-	if (c == '\0')
+	if ((char) c == '\0')
 		return (ptr + i);
 	i--;
-	while (s[i] && i > -1)
+	while (i > -1 && s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (char) c)
 			return (ptr + i);
 		i--;
 	}
@@ -36,14 +40,14 @@ char	*ft_strrchr(const char *s, int c)
 // 	char	*ptr1;
 // 	char	*ptr2;
 
-// 	ptr1 = ft_strrchr("ABCEABCZE\0", 'Z');
-// 	ptr2 = strrchr("ABCEABCZE\0", 'Z');
+// 	// ptr1 = ft_strrchr("ABCEABCZE\0", 'Z');
+// 	// ptr2 = strrchr("ABCEABCZE\0", 'Z');
 // 	// Check if ptr1 && ptr2 - 1 = Z and not C (to target last occurance).
 
-// 	ptr1 = ft_strrchr("ABCEABCZE\0", '5');
-// 	ptr2 = strrchr("ABCEABCZE\0", '5');
+// 	ptr1 = ft_strrchr("teste", 'x');
+// 	ptr2 = strrchr("teste", 'x');
 
-// 	puts(ptr1 - 1);
-// 	puts(ptr2 - 1);
+// 	puts(ptr1);
+// 	puts(ptr2);
 // 	return (0);
 // }
