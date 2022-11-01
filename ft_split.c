@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:44:49 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/30 11:49:46 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/11/01 14:46:26 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static	int	get_word_count(char const *s1, int c);
 static	int	get_word_len(char const *s1, int c, int current_i);
 static	char	**copy_into_array(char **arr, const char *s, char c, int w_c);
-static	void	ft_free(char **strs, int j);
+static	void	*ft_free(char **strs, int j);
 
 static	int	get_word_count(char const *s1, int c)
 {
@@ -52,14 +52,15 @@ static	int	get_word_len(char const *s1, int c, int current_i)
 	return (word_len);
 }
 
-static void	ft_free(char **arr, int i)
+static void	*ft_free(char **arr, int i)
 {
-	while (i)
+	while (i > -1)
 	{
 		free(arr[i]);
-		i++;
+		i--;
 	}
 	free(arr);
+	return (NULL);
 }
 
 static	char	**copy_into_array(char **arr, const char *s, char c, int w_c)
