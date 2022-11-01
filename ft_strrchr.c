@@ -6,21 +6,17 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:38:40 by dlynch            #+#    #+#             */
-/*   Updated: 2022/11/01 15:26:16 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/11/01 15:50:54 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;
 	int		i;
 
-	if (s == NULL)
-		return (NULL);
 	ptr = (char *) s;
 	i = ft_strlen(s);
 	if ((char) c == '\0')
