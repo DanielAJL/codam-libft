@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:19:51 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/20 18:12:14 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/11/01 14:48:52 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup("\0"));
 	if ((len > (ft_strlen(s) - start)))
 		len = ft_strlen(s) - start;
-	ptr = malloc((1 * len) + 1);
+	ptr = malloc((sizeof(char) * len) + 1);
 	if (!ptr)
 		return (NULL);
 	while (s[start] && i < len)
