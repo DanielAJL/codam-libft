@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:37:51 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/21 11:17:08 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/11/01 15:53:46 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 
 	i = 0;
 	j = 0;
-	if (!ft_strlen(needle) || !n)
+	if (!ft_strlen(needle))
 		return ((char *)haystack);
 	while (haystack[i] && (i < n))
 	{
