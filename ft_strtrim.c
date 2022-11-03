@@ -6,92 +6,79 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:03:56 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/24 16:00:06 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/11/03 17:32:11 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ptr_after_match_front(char const *s1, char const *set);
-static	int	ptr_before_match_back(char const *s1, char const *set);
-
-/*
-Return index to first non-matching occurrence AFTER match found from start of s1
-If none are found, index will be matching strlen(s1)
-*/
-static	int	ptr_after_match_front(char const *s1, char const *set)
+static	size_t	is_character_in_set(char character, char const *set)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
 	i = 0;
-	while (s1[i])
+	while (set[i])
 	{
-		j = 0;
-		while (set[j] && s1[i] != set[j])
-		{
-			j++;
-			if (j == (int) ft_strlen(set))
-				return (i);
-		}
+		if (character == set[i])
+			return (1);
 		i++;
 	}
-	return (i);
+	return (0);
 }
 
-/*
-Return index to first non-matching occurrence BEFORE match found from end of s1.
-If none are found, index will be matching 0 / the start of s1
-*/
-static	int	ptr_before_match_back(char const *s1, char const *set)
+static	int	find_position_index(char const *s1, char const *set, int ltr)
 {
-	int	i;
-	int	j;
+	int	index;
 
-	i = ft_strlen(s1) - 1;
-	while (s1[i] && i)
+	if (!ltr)
 	{
-		j = 0;
-		while (set[j] && s1[i] != set[j])
+		index = ft_strlen(s1);
+		while (is_character_in_set((char) s1[--index], set))
 		{
-			j++;
-			if (j == (int) ft_strlen(set))
-				return (i);
+			if (index == 0)
+				break ;
 		}
-		i--;
 	}
-	return (i);
+	else
+	{
+		index = 0;
+		while (is_character_in_set((char) s1[index], set))
+			index++;
+	}
+	return (index);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*ptr;
-	int		start;
-	int		end;
 	int		i;
+	int		j;
+	int		length;
+	char	*ptr;
 
 	if (!s1)
 		return (NULL);
-	start = ptr_after_match_front(s1, set);
-	end = ptr_before_match_back(s1, set);
-	i = 0;
-	if ((int) ft_strlen(s1) != end)
-		end = end + 1;
-	ptr = malloc((end - start) + 1);
+	i = find_position_index(s1, set, 1);
+	j = find_position_index(s1, set, 0);
+	length = ((int) ft_strlen(s1) - i) - ((int) ft_strlen(s1) - j) + 2;
+	if (length < 1)
+		length = 1;
+	ptr = ft_calloc(length, sizeof(char));
 	if (!ptr)
-		return (ft_strdup("\0"));
-	ft_strlcpy(ptr, &s1[start], (end - start) + 1);
+		return (NULL);
+	ft_strlcpy(ptr, s1 + i, length);
 	return (ptr);
 }
 
-// int main(void)
+// int	main(void)
 // {
-// 	// char set1[] = "ab";
-// 	// char str1[] = "cccacabccaba";
+// 	char *s1 = ft_strtrim("   xxxtripouille", " x");
+// 	char *s2 = ft_strtrim("tripouille ee x eee  xxx", " x");
+// 	char *s3 = ft_strtrim("   xxx   xxx", " x");
+// 	char *s4 = ft_strtrim("", "");
 
-// 	char set1[] = "\n\t";
-// 	char str1[] = "\t\t\n\n\n\n\t";
-
-// 	printf("%s\n", ft_strtrim(str1, set1));
+// 	printf("s1:	[%s]\n", s1);
+// 	printf("s2:	[%s]\n", s2);
+// 	printf("s3:	[%s]\n", s3);
+// 	printf("s4:	[%s]\n", s4);
 // 	return (0);
 // }
