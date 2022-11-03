@@ -6,7 +6,7 @@
 /*   By: dlynch <dlynch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:39:54 by dlynch            #+#    #+#             */
-/*   Updated: 2022/10/15 11:38:42 by dlynch           ###   ########.fr       */
+/*   Updated: 2022/11/03 17:48:19 by dlynch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,6 @@
 
 #include "libft.h"
 
-// ATTEMPT 1:
-// void	*ft_memmove(void *dst, const void *src, size_t len)
-// {
-// 	char		*data_dst;
-// 	const char	*data_src;
-// 	char		*last_dst;
-// 	char		*last_src;
-//
-// 	data_dst = dst;
-// 	data_src = src;
-// 	if (!dst && !src)
-// 		return (0);
-// 	if (data_dst < data_src)
-// 	{
-// 		while (len--)
-// 			*data_dst++ = *data_src++;
-// 	}
-// 	else
-// 	{
-// 		last_src = (char *)data_src + (len - 1);
-// 		last_dst = data_dst + (len - 1);
-// 		while (len--)
-// 		{
-// 			puts(last_dst);
-// 			puts(last_src);
-// 			*last_dst-- = *last_src--;
-// 		}
-// 	}
-// 	return (dst);
-// }
-
-// ATTEMPT 2:
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	const char	*src_copy;
